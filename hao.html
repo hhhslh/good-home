@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>haodaojia</title>
+	<script type="text/javascript" src="./js/jquery-3.2.0.min.js"></script>
+	<style type="text/css">
+		html,body,h3,ul,li{
+			padding:0;
+			margin:0;
+		}
+		a{
+			text-decoration: none;
+		}
+		li{
+			list-style: none;
+		}
+		/*.top-sss{
+			height:446px;
+		}*/
+		.top{
+			width:100%;
+			height:60px;
+			background-color: #0aa770;
+    		border-bottom: 1px solid #099e6a;
+    		line-height: 60px;
+		}
+		.top-child{
+			width:1190px;
+			margin:0 auto;
+		}
+		.logo>img{
+			width:108px;
+			height:32px;
+			line-height: 32px;
+			float:left;
+			padding:14px 0;
+		}
+		.logo-2{
+			float: left;
+		    height: 54px;
+		    line-height: 54px;
+		    padding: 6px 15px 0 25px; 
+		}
+		.logo-2:hover{
+			background-color: #118860;
+			color:#fff;
+			opacity: 1;
+		}
+		.logo-2 img{
+			height:13px;
+			width:13px;
+			color:#fff;
+			opacity: 0.8;
+		}
+		.logo-2 img:hover{
+			color:#fff;
+			opacity: 1;
+		}
+		.logo-2>a{
+			margin: 0 3px;
+		    font-size: 18px;
+		    color: #fff;
+		    opacity: 0.8;
+		    font-family: "Hiragino Sans GB","Hiragino Sans GB W3","Microsoft Yahei",STHeiti,SimSun,helvetica,arial,sans-serif;
+		    font-weight: 400;
+		}
+		.logo-2 a:hover{
+			color:#fff;
+			opacity: 1;
+		}
+		.dao{
+			position: relative;
+			float:left;
+		}
+		.kuang{
+			background-color: rgba(17,136,96,.9);
+			position: absolute;
+			top:61px;
+			left:0px;
+			padding:15px;
+			display:none;
+			z-index: 2;
+		}
+		.kind{
+			width:190px;
+			position: relative;
+			border-bottom: 1px solid #099e6a;
+			padding:0px 0 0 8px;
+			overflow: hidden;
+		}
+		.kind h3{
+			font-size: 12px;
+			font-weight: 400;
+			position: absolute;
+		    left: 5px;
+		    top: 20px;
+		    height: 40px;
+		    width: 33px;
+		    color: #fff;
+		    line-height: 20px;	
+		}
+		.kuang .kind .content{
+			width:160px;
+			float:right;
+		}
+		.content a {
+			float: left;
+			font-size: 12px;
+			color:#fff;
+			width:36px;
+			height:20px;
+			line-height: 20px;
+			display:inline-block;
+			text-align: center;
+			white-space: nowrap; 
+		}
+		.content a:hover{
+			text-decoration: underline;
+			background-color: #00b777;
+		}
+		.first{
+			padding-bottom: 10px;
+		}
+		.second{
+			padding: 5px;
+		}
+		.dao:hover .kuang{
+			display:block;
+		}
+		.clearfix::after{
+			display:block;
+			clear:both;
+			height:0;
+			content:"";
+		}
+		.top-right{
+			float:right;
+		}
+		.top-right .changed{
+			padding:0 10px;
+		}
+		.changed{
+			float:left;
+		}
+		.changed:hover{
+			background-color:#118860;
+		}
+		.changed a{
+			width: 55px;
+		    text-align: center;
+		    height: 22px;
+		    line-height: 22px;
+		    color: #fff;
+		    font-size: 12px;
+		}
+		.changed img{
+			width: 13px;
+		    height: 13px;
+		    margin-top: 4px;
+		}
+		.hand:hover{
+			text-decoration: underline;
+		}
+		.phone-box{
+			width:100px;
+			height:100px;
+			background-color: #118860;
+			position: absolute;
+			top:60px;
+			right:527px;
+			display:none;
+			z-index: 2;
+		}
+		.phone-box img{
+			width:80px;
+			height:80px;
+			margin:0 auto;
+			margin:10px;
+		}
+		.phone:hover .phone-box{
+			display:block;
+		}
+		.search{
+			float:left;
+		}
+		.search input{
+			width:300px;
+			height:27px;
+			line-height: 22px;
+			margin-left: 20px;	
+		}
+		span.search img{
+			background-color: #118860;
+			width:80px;
+			height:32px;
+			position: relative;
+			top:11px;
+			left:-6px;
+		}
+		span.search img:hover{
+			background-color: #00b777;
+		}
+		.head{
+			width:100%;
+			height:40px;
+			background-color: #0aa770;
+			line-height: 40px;
+		}
+		.head-child{
+			width:1190px;
+			margin:0 auto;
+		}
+		.head-left ul li{
+			float:left;
+			padding:0 10px;
+			color: #fff;
+    		font-size: 16px;
+		}
+		.head-left ul li.selected{
+			background-color: #118860;
+		}
+		.head-left ul li:hover{
+			background-color: #00b777;
+		}
+		.head-right{
+			float: right;
+			height: 22px;
+		    line-height: 22px;
+		    text-align: center;
+		    overflow: hidden;
+		    width: 200px;
+		    position: relative;
+		    margin-top: 10px;
+		    left:600px;
+		}
+		.lll{
+			width: 200px;
+			height: 132px;
+			margin-top:-22px;
+		}
+		.head-right>ul>li{
+			text-align: right;
+			overflow: hidden;
+			font-size: 12px;
+			color: #fff;
+		}
+		.head-right>ul>li:hover{
+			text-decoration: underline;
+		}
+		.middle{
+			background: #f4f4f4;
+		    width: 100%;
+		    height: 345px;
+		}
+		.middle-child{
+			width: 1190px;
+			margin: 0 auto;
+			position: relative;
+		}
+		.middle-left{
+			width: 670px;
+   			height: 305px;
+   			background-color: #fff;
+   			position: absolute;
+   			left:0;
+   			top:20px;
+		}
+		.middle-left a{
+			font-size: 16px;
+		    font-family: 'Microsoft YaHei',SimHei,arial;
+		    color: #fff;
+		    width: 124px;
+		    height: 50px;
+		    line-height: 50px;
+		    background-color: #0aa770;
+		    display:block;
+		    text-align: center;
+		}
+		.middle-left a.selected{
+			background-color: #fff;
+			color:#0aa770;
+		}
+		.middle-left a:hover{
+			background-color:#fafafa;
+			color:#0aa770;
+		}
+		/*.middle-left .line{
+			border-bottom: 1px dashed black;
+		    width: 94px;
+		    margin-left: 16px;
+		}*/
+		.middle-right{
+			width: 506px;
+		    height: 170px;
+		    position: relative;
+		    top:37px;
+		    left:142px;
+		}
+		.middle-right button{
+			width: 22px;
+    		height: 58px;
+    		border:0;
+    		position: absolute;
+    		top:55px;
+		}
+		button.left{
+   			left:0px;
+		}
+		
+		button.right{
+   			right:0px;
+		}
+		.movie-image{
+			width: 450px;
+		    height: 170px;
+		    margin: 0 auto;
+		    overflow: hidden;
+		    position: relative;
+		}
+		.movie-image ul li{
+			float:left;
+		}
+		.movie-image ul li img{
+		    width: 130px;
+    		height: 170px;
+    		padding: 2px 10px;
+		}
+		.image-box{
+			width:1350px;
+			margin-left: -450px;
+		}
+		.image-box>li{
+			width:450px;
+			height:170px;
+		}
+		.middle-root{
+			position: relative;
+		}
+		.middle-root span.selected{
+			color: #222;
+			border:1px solid #e5e5e5;
+			font-size: 14px;
+			position: absolute;
+			top:60px;
+			height:28px;
+			line-height: 28px;
+		}
+		.middle-root span.city{
+			width: 70px;
+			left:142px;
+		}
+		.middle-root span.yard{
+			width:200px;
+			left:222px;
+		}
+		.middle-root span.kind{
+			width:210px;
+			left:433px;
+		}
+		.choose span{
+			width:80px;
+			height:32px;
+			line-height: 32px;
+			background-color: #ff6d00;
+			font-size:14px;
+			text-align: center;
+			color:#fff;
+			position: absolute;
+			top:280px;
+			left:573px;
+		}
+		.choose span:hover{
+			background-color: #ff8400;
+		}
+		.middle-tip{
+			width:480px;
+			height:305px;
+			position: absolute;
+			top:20px;
+			right:0;
+		}
+		.middle-tip a{
+			font-size: 22px;
+		    font-family: "Microsoft Yahei";
+		    line-height: 38px;
+		    height: 38px;
+		    color: #333;
+		    margin-top: 7px;
+		}
+		.middle-tip a:hover{
+			color:red;
+		}
+		.middle-tip span{
+			font-size: 14px;
+		    font-family: Simsun;
+		    color: #666;
+		    padding-right:10px;
+		}
+		.middle-tip span.selected{
+			color:red;
+		}
+		.middle-tip span.line{
+			border-right: 1px solid #666;
+		}
+		.tip-2{
+			padding-top: 20px;
+			padding-bottom: 20px;
+			border-bottom: 1px dashed #666;
+		}
+		.tip-3 a{
+			font-size: 14px;
+		    font-family: Simsun;
+		    line-height: 32px;
+		    color: #666;
+		    float: left;
+		    height: 32px;
+		    padding-right: 25px;
+		}
+		.tip-3 a:hover{
+			text-decoration: underline;
+			color:red;
+		}
+		/*.bottom{
+			height:2000px;
+		}*/
+		.bottom-child{
+			width: 1190px;
+			margin:0 auto;
+		    background-color: #fff;
+		    position: relative;
+		}
+		.bottom-bar{
+			width: 915px;
+		    height: 50px;
+		    background: #0aa770;
+		    position: relative;
+		    top:20px;
+		}
+		.bottom-bar ul li{
+			float:left;
+			color:#fff;
+			height: 46px;
+		    font-size: 16px;
+		    width:71px;
+		    font-family: "Microsoft YaHei";
+		    line-height: 46px;
+		    text-align: center;
+		    margin-top: 4px;
+		}
+		.bottom-bar ul li.selected{
+			border-left: solid 1px #e9e9e9;
+			color: #333;
+    		background: #fff;
+    		height: 46px;
+		    font-size: 16px;
+		    width:71px;
+		    font-family: "Microsoft YaHei";
+		    line-height: 46px;
+		    text-align: center;
+		    margin-top: 4px;
+		}
+		.bottom-tip {
+          position: fixed;
+          top: 0;
+          left: 50px;
+          z-index: 9999;
+          width: 915px;
+        }
+       /* .bottom-ab {
+          position: absolute;
+          top: 446px;
+          left: 0;
+          z-index: 99;
+          width: 100%;
+        }*/
+        .bottom-content{
+        	height:84px;
+        	width:915px;
+        	padding-bottom: 10px;
+        	border-bottom: 1px dashed #eaeaea;
+        	position: relative;
+        	top:90px;
+        	left:0;
+        	padding-top: 56px;
+        }
+        .bottom-content:hover{
+        	background-color:#f4f4f4;
+        }
+        .bottom-content img{
+        	margin-right: 20px;
+		    width: 150px;
+		    height: 112px;
+		    position: absolute;
+		    top:20px;
+		    left:0px;
+        }
+        .bottom-content>.content{
+        	position: absolute;
+        	top:13px;
+        	left:204px;
+        }
+        .bottom-content .content span{
+        	font-size: 22px;
+        	color: #333;
+        	font-family: "Microsoft Yahei";
+        }
+        .bottom-content .content p{
+        	font-size: 12px;
+    		font-family: Simsun;
+    		height:24px;
+    		line-height: 24px;
+    		color:#999;
+        }
+        .bottom-content .content p.from{
+        	padding-top: 22px;
+        }
+        .bottom-right{
+        	position: absolute;
+        	right:0;
+        	top:20px;
+        }
+        .bottom-ad{
+        	width:270px;
+        	height:130px;
+        	overflow: hidden;
+        }
+        .bottom-ad ul li{
+        	float:left;
+        }
+        .bottom-ad button{
+        	width:22px;
+        	height:50px;
+        	border:0;
+        	background-color: black;
+        	opacity:0.5;
+        	position: absolute;
+        	top:45px;
+        	z-index: 55;
+        }
+        .bottom-ad button:hover{
+        	background:black;
+        	opacity:1;
+        }
+        .bottom-ad button.left-ad{
+        	left:0;
+        }
+        .bottom-ad button.right-ad{
+        	right:0;
+        }
+        .image-ad{
+        	width:1080px;
+        	margin-left: -270px;
+        }
+        .image-ad li{
+        	width:270px;
+        	height:130px;
+        }
+        .discount{
+        	width: 270px;
+    		height: 172px;
+    		position: relative;
+    		margin-top: 10px;
+    		background: #f4f4f4;
+    		border-top: 1px dashed #ccc;
+    		border-bottom: 1px dashed #ccc;
+        }
+        .card1 h2{
+        	width:78px;
+        	height:30px;
+        	line-height: 30px;
+        	background: #f94977;
+        	font-size: 14px;
+    		border-radius: 20px;
+    		color: #fff;
+    		font-family: Simsun;
+		    text-align: center;
+		    margin: 20px 0 0 18px;
+        }
+        .card2{
+        	margin-top: 0;
+		    width: 270px;
+		    height: 110px;
+		    overflow: hidden;
+		}
+		.card2-word{
+			margin: 4px 0 0 18px;
+		}
+        .card2 .card2-word span{
+			color: #666;
+		    font-size: 14px;
+		    font-family: Simsun;
+		    line-height: 30px;   
+        }
+        .card2 .card2-word a{
+        	color: #fff;
+		    float: right;
+		    width: 40px;
+		    height: 24px;
+		    line-height: 24px;
+		    text-align: center;
+		    border-radius: 20px;
+		    margin-right: 20px;
+		    background: #f94977;
+		    margin-top: 6px;
+        }
+        .card3{
+        	width:270px;
+        	height:10px;
+        }
+		.card3 span{
+			width: 6px;
+		    height: 6px;
+		    border-radius: 6px;
+		    margin: 0 4px;
+		    background: #aaa;
+		    display:inline-block;
+		    position: relative;
+		    top:-8px;
+		    left:115px;
+		}
+		.card3 span.active{
+			background: #666;
+		}
+		.bottom-life{
+			width: 270px;
+		    height: 620px;
+		    background: #f4f4f4;
+		    border: 1px solid #e9e9e9;
+		    margin-top: 20px;
+		}
+		.inquiry{
+			height:289px;
+			width:270px;
+			padding-left: 10px;
+		}
+		.inquiry img{
+			width: 113px;
+    		height: 38px;
+    		margin-top:20px;
+		}
+		.inquiry>a{
+			float: right;
+		    font-family: Simsun;
+		    font-size: 12px;
+		    color: #666;
+		    margin: 25px 20px 0 0;
+		}
+		.picture-sss{
+			width:270px;
+			height:104px;
+			position: relative;
+			top:-15px;
+			overflow: hidden;
+			margin-left:15px;
+		}
+		/*.picture-sss>a{
+			width:8px;
+			height:16px;
+			background-color: #fff;
+			opacity:0.8;
+		}*/
+		.picture li{
+			float:left;
+			width:250px;
+			height:104px;
+			padding:0 10px;
+		}
+		.picture{
+			width:270px;
+			height:70px;
+			margin-left:20px;
+		}
+		.picture a{
+			float:left;
+		}
+		.picture a img{
+			width:50px;
+			height:50px;
+			padding-right: 25px;
+		}
+		.picture p{
+			color:black;
+			font-size: 14px;
+		    font-family: Simsun;	
+		}
+		.picture{
+			width:810px;
+			margin-left:-270px;
+		}
+		.a-line{
+			width:250px;
+			height:2px;
+		    border-top: 1px dashed #ccc;
+		}
+		.inquiry-content{
+		  padding-top: 7px;
+		  width: 100%;
+	      height: 114px;
+	      overflow: hidden;
+		}
+		.inquiry-content a{
+			width: 88px;
+		    font-size: 14px;
+		    line-height: 28px;
+		    font-family: Simsun;
+		    color: #666;
+		    float: left;
+		    text-align: center;
+		}
+		.inquiry-content a:hover{
+			color: #f50;
+    		text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+<div class="top-sss">
+	<div class="top">
+		<div class="top-child">
+			<div class="top-right">
+				<div class="changed hand">
+					<img src="./image/bear.png">
+					<a href="#">一键登录</a>
+				</div>
+				<span class="phone">
+					<div class="changed">
+						<img src="./image/phone.png">
+						<a href="#">手机版</a>
+					</div>
+					<div class="phone-box">
+						<img src="./image/erweima.png">
+					</div>
+				</span>
+				<div class="changed">
+					<img src="./image/house.png">
+				</div>
+				<span class="search">
+					<input type="text" class="text" placeholder="9个月夹3000个娃娃">
+					<img src="./image/search.png">
+				</span>
+			</div>
+			<div class="top-left">
+				<div class="logo">
+					<img src="./image/hao-logo.png">
+					<img src="./image/haodaojia.jpg">
+				</div>
+				<div class="dao">
+					<div class="logo-2">
+						<img src="./image/nine.png">
+						<a href="#">导航</a>
+					</div>
+					<div class="kuang">
+						<div class="kind first">
+							<h3>休闲娱乐</h3>
+							<div class="content clearfix">
+								<ul>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="kind second">
+							<h3>休闲娱乐</h3>
+							<div class="content clearfix">
+								<ul>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+								</ul>
+							</div>
+						</div>
+						<div class="kind second">
+							<h3>休闲娱乐</h3>
+							<div class="content clearfix">
+								<ul>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+									<li><a href="#">综艺</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="head">
+		<div class="head-child">
+			<div class="head-right">
+				<ul class="clearfix lll">
+					<li>C罗蝉联足球先生</li>
+					<li>尬舞在尴尬中退潮</li>
+					<li>1年9项发明专利</li>
+					<li>十九届政治局常委</li>
+					<li>吴尊爱妻罕见露面</li>
+					<li>俄官员枪杀4军人</li>
+				</ul>
+			</div>
+			<div class="head-left">
+				<ul class="clearfix">
+					<li class="selected">首页</li>
+					<li>实用查询</li>
+					<li>快递到家</li>
+					<li>美食</li>
+					<li>健康</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div class="middle">
+		<div class="middle-child">
+			<div class="middle-left">
+				<ul>
+					<li><a href="#"  class="selected">电影订座</a></li>
+					<li><a href="#">美食外卖</a></li>
+					<li><a href="#">家政按摩</a></li>
+					<li><a href="#">机票火车票</a></li>
+					<li><a href="#">门票度假</a></li>
+					<li><a href="#">快递查违章</a></li>
+				</ul>
+			</div>
+			<div class="middle-right">
+				<button class="left"> < </button>
+				<button class="right"> > </button>
+				<div class="movie-image">
+					<ul class="clearfix image-box">
+						<li>
+							<ul class="clearfix">
+								<li><img src="./image/movie1.jpg"></li>
+								<li><img src="./image/movie1.jpg"></li>
+								<li><img src="./image/movie1.jpg"></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="clearfix">
+								<li><img src="./image/movie2.jpg"></li>
+								<li><img src="./image/movie2.jpg"></li>
+								<li><img src="./image/movie2.jpg"></li>
+							</ul>
+						</li>
+						<li>
+							<ul class="clearfix">
+								<li><img src="./image/movie3.jpg"></li>
+								<li><img src="./image/movie3.jpg"></li>
+								<li><img src="./image/movie3.jpg"></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="middle-root">
+				<span class="selected city">吉林</span>
+				<span class="selected yard">选影院</span>
+				<span class="selected kind">选影片</span>
+			</div>
+			<div class="choose">
+				<span>选座订票</span>
+			</div>
+			<div class="middle-tip">
+				<div class="tip">
+					<a>睡觉流口水竟然暗示这些疾病的发生</a><br>
+					<span class="line">上班族坐姿歪致失眠</span>
+					<span class="selected line">三食物补血抗疲劳</span>
+					<span>健身运动能防癌</span>
+				</div>
+				<div class="tip tip-2">
+					<a>睡觉流口水竟然暗示这些疾病的发生</a><br>
+					<span class="line">上班族坐姿歪致失眠</span>
+					<span class="selected line">三食物补血抗疲劳</span>
+					<span>健身运动能防癌</span>
+				</div>
+				<div class="tip-3">
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+					<a href="#">三招帮你把办公室变成减压中心</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+	<div class="bottom">
+		<div class="bottom-child">
+			<div class="bottom-bar bottom-tip bottom-ab">
+				<ul class="clearfix">
+					<li class="selected">热门</li>
+					<li>本地</li>
+					<li>养生</li>
+					<li>美食</li>
+					<li>女性</li>
+				</ul>
+			</div>
+			<div class="bottom-sss">
+			<div class="bottom-content">
+				<img src="./image/house.jpg">
+				<div class="content">
+					<span>未来不会有人觉得房价贵，而是......</span>
+					<p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...[详情]</p>
+					<p class="from">来源: 凤凰网</p>
+				</div>
+			</div>
+			<div class="bottom-content">
+				<img src="./image/house.jpg">
+				<div class="content">
+					<span>未来不会有人觉得房价贵，而是......</span>
+					<p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...[详情]</p>
+					<p class="from">来源: 凤凰网</p>
+				</div>
+			</div>
+			<div class="bottom-content">
+				<img src="./image/house.jpg">
+				<div class="content">
+					<span>未来不会有人觉得房价贵，而是......</span>
+					<p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...[详情]</p>
+					<p class="from">来源: 凤凰网</p>
+				</div>
+			</div>
+			<div class="bottom-content">
+				<img src="./image/house.jpg">
+				<div class="content">
+					<span>未来不会有人觉得房价贵，而是......</span>
+					<p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...[详情]</p>
+					<p class="from">来源: 凤凰网</p>
+				</div>
+			</div>
+			<div class="bottom-content">
+				<img src="./image/house.jpg">
+				<div class="content">
+					<span>未来不会有人觉得房价贵，而是......</span>
+					<p>来源：米筐投资（mikuangtouzi）最近看香港TVB拍的《使徒行者2》后，觉得不过瘾，于是把第一部也回看了。讲真，两部戏真是TVB时装警匪剧的一个里程碑。剧情吸引人，演...[详情]</p>
+					<p class="from">来源: 凤凰网</p>
+				</div>
+			</div>
+			</div>
+			<div class="bottom-right">
+				<div class="bottom-ad">
+					<button class="left-ad"> < </button>
+					<button class="right-ad"> > </button>
+					<ul class="clearfix image-ad">
+						<li><img src="./image/ad1.jpg"></li>
+						<li><img src="./image/ad1.jpg"></li>
+						<li><img src="./image/ad1.jpg"></li>
+						<li><img src="./image/ad1.jpg"></li>
+					</ul>
+				</div>
+				<div class="discount">
+					<div class="card1">
+						<h2>每日优惠</h2>
+					</div>
+					<div class="card2">
+						<div class="card2-word-sss">
+							<div class="card2-word">
+								<span>e家帮 615元优惠券</span>
+								<a href="#">抢</a>
+							</div>
+							<div class="card2-word">
+								<span>e家帮 615元优惠券</span>
+								<a href="#">抢</a>
+							</div>
+							<div class="card2-word">
+								<span>e家帮 615元优惠券</span>
+								<a href="#">抢</a>
+							</div>
+						</div>
+						<div class="card2-word-sss">
+							<div class="card2-word">
+								<span>懒人厨房 美味食谱</span>
+								<a href="#">抢</a>
+							</div>
+						</div>
+					</div>
+					<div class="card3">
+						<span class="active"></span>
+						<span></span>
+					</div>
+				</div>
+				<div class="bottom-life">
+					<div class="inquiry">
+						<img src="./image/cha.png">
+						<a href="#">更多>></a>
+						<div class="picture-sss">
+							<ul class="picture">
+								<li>
+									<a href="#"><img src="./image/map.png"><p>查地图</p></a>
+									<a href="#"><img src="./image/map.png"><p>查地图</p></a>
+									<a href="#"><img src="./image/map.png"><p>查地图</p></a>	
+								</li>
+								<li>
+									<a href="#"><img src="./image/weather.png"><p>查天气</p></a>
+									<a href="#"><img src="./image/weather.png"><p>查天气</p></a>
+									<a href="#"><img src="./image/weather.png"><p>查天气</p></a>
+								</li>
+								<li>
+									<a href="#"><img src="./image/money.png"><p>查话费</p></a>
+									<a href="#"><img src="./image/money.png"><p>查话费</p></a>
+									<a href="#"><img src="./image/money.png"><p>查话费</p></a>
+								</li>
+							</ul>
+						</div>
+						<div class="a-line"></div>
+						<div class="inquiry-content">
+							<a href="#">周公解梦</a>
+							<a href="#">星座运势</a>
+							<a href="#">彩票开奖</a>
+							<a href="#">万年历</a>
+							<a href="#">火车票</a>
+							<a href="#">身份证</a>
+							<a href="#">周公解梦</a>
+							<a href="#">星座运势</a>
+							<a href="#">彩票开奖</a>
+							<a href="#">万年历</a>
+							<a href="#">火车票</a>
+							<a href="#">身份证</a>
+						</style>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function(){
+			 //句子轮播
+             function Left0(){
+              $(".lll").stop(true,true).animate({
+                    marginTop: "-=22px",
+                },500,function(){
+                    var first = $(".lll li").first();
+                    var last = $(".lll li").last();
+                    first.insertAfter(last);
+                    $(".lll").css("margin-top","-22px");
+
+                })
+            }
+			function exportTimer0(){
+                timer0 = setInterval(function(){
+                    Left0();
+                },2000);
+            }
+             exportTimer0();
+             $(".lll li").hover(
+                function(){
+                    clearInterval(timer0)
+                },
+                function(){
+                    exportTimer0();
+                }
+            )
+
+
+			function Right1(){
+                	$(".image-box").stop(true,true).animate({
+	                    marginLeft:"-=450px",
+	                },500,function(){
+	                    var first = $(".image-box>li").first();
+	                    var last = $(".image-box>li").last();
+	                    first.insertAfter(last);
+	                    $(".image-box").css("margin-left","-450px");
+	                })
+            }
+            function Left1(){
+                	$(".image-box").stop(true,true).animate({
+	                    marginLeft:"+=450px",
+	                },500,function(){
+	                    var first = $(".image-box>li").first();
+	                    var last = $(".image-box>li").last();
+	                    last.insertBefore(first);
+	                    $(".image-box").css("margin-left","-450px");
+	                })
+            }
+          
+            //左侧点击
+            $(".left").click(function(){
+                Right1()
+            })
+
+            //右侧点击
+            $(".right").click(function(){
+                Left1()
+            })
+            //定时器方法
+            function exportTimer1(){
+                timer1 = setInterval(function(){
+                    Left1();
+                },2000);
+            }
+            //第一次执行定时器
+            exportTimer1();
+
+            //左侧触碰停止及开始定时器
+            $(".left").hover(
+                function(){
+                    clearInterval(timer1)
+                },
+                function(){
+                    exportTimer1();
+                }
+            )
+            //右侧触碰停止及开始定时器
+            $(".right").hover(
+                function(){
+                    clearInterval(timer1)
+                },
+                function(){
+                    exportTimer1();
+                }
+            )
+
+
+            function Left2(){
+                	$(".image-ad").stop(true,true).animate({
+	                    marginLeft:"-=270px",
+	                },500,function(){
+	                    var first = $(".image-ad>li").first();
+	                    var last = $(".image-ad>li").last();
+	                    first.insertAfter(last);
+	                    $(".image-ad").css("margin-left","-270px");
+	                })
+            }
+            function Right2(){
+                	$(".image-ad").stop(true,true).animate({
+	                    marginLeft:"+=270px",
+	                },500,function(){
+	                    var first = $(".image-ad>li").first();
+	                    var last = $(".image-ad>li").last();
+	                    last.insertBefore(first);
+	                    $(".image-ad").css("margin-left","-270px");
+	                })
+            }
+             $(".left-ad").click(function(){
+                Left2()
+            })
+             $(".right-ad").click(function(){
+                Right2()
+            })
+              function exportTimer2(){
+                timer2 = setInterval(function(){
+                    Left2();
+                },4000);
+            }
+            exportTimer2();
+
+             $(".left-ad").hover(
+                function(){
+                    clearInterval(timer2)
+                },
+                function(){
+                    exportTimer2();
+                }
+            )
+             $(".right-ad").hover(
+                function(){
+                    clearInterval(timer2)
+                },
+                function(){
+                    exportTimer2();
+                }
+            )
+
+
+            $(".bottom-bar ul li").click(function(){
+            	$(this).addClass("selected").siblings().removeClass("selected");
+            })
+
+            var index = $(".card3 span.active").index();
+            function Up(){
+            	console.log(index)
+                if(index == 0) { index = 2; }
+                $(".card3 span").eq(index-=1).addClass("active").siblings().removeClass("active");
+            }
+            function Down(){
+                if(index == 1) { index = -1; }
+                $(".card3 span").eq(index+=1).addClass("active").siblings().removeClass("active");
+                $(".card2-word-sss").removeClass("hide").eq(index).slideDown().siblings().addClass("hide").slideUp();
+            } 
+
+             function exportTimer3(){
+                timer3 = setInterval(function(){
+                    Down();
+                },3000);
+            }
+            exportTimer3();
+
+             $(".card3 span.active").hover(
+                function(){
+                    clearInterval(timer3)
+                },
+                function(){
+                    exportTimer3();
+                }
+            )
+             $(".card3 span").click(function(){
+             	var index=$(this).index();
+             	$(this).addClass("active").siblings().removeClass("active");
+             	$(".card2-word-sss").eq(index).slideDown().siblings().slideUp();
+	            
+             })
+
+
+             function Left4(){
+                	$(".picture").stop(true,true).animate({
+	                    marginLeft:"-=270px",
+	                },500,function(){
+	                    var first = $(".picture>li").first();
+	                    var last = $(".picture>li").last();
+	                    first.insertAfter(last);
+	                    $(".picture").css("margin-left","-270px");
+	                })
+            }
+            function Right4(){
+                	$(".picture").stop(true,true).animate({
+	                    marginLeft:"+=270px",
+	                },500,function(){
+	                    var first = $(".picture>li").first();
+	                    var last = $(".picture>li").last();
+	                    last.insertBefore(first);
+	                    $(".picture").css("margin-left","-270px");
+	                })
+            }
+
+              function exportTimer4(){
+                timer4 = setInterval(function(){
+                   Left4();
+                },4000);
+            }
+            exportTimer4();
+
+            //  $(".left-ad").hover(
+            //     function(){
+            //         clearInterval(timer4)
+            //     },
+            //     function(){
+            //         exportTimer4();
+            //     }
+            // )
+            //  $(".right-ad").hover(
+            //     function(){
+            //         clearInterval(timer4)
+            //     },
+            //     function(){
+            //         exportTimer4();
+            //     }
+            // )
+	      	$(window).ready(function(){
+				var middleBarOffsetTop = $(".bottom-bar").offset().top;
+				var windowHeight = $(window).height();
+				var windowScrolltop = $(window).scrollTop();
+				var bodyHeight = $("body").height();
+				if(bodyHeight-(windowHeight+windowScrolltop) <= middleBarOffsetTop){
+					$(".bottom-bar").addClass("bottom-tip")
+				}else {
+					$(".bottom-bar").removeClass("bottom-tip")
+				}
+            })
+
+            
+		})
+	</script>
+</body>
+</html>
